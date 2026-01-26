@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0f172a" />
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="url(#g)" opacity="0.95" />
+  <text x="120" y="220" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="700">Anmol Agarwal</text>
+  <text x="120" y="300" fill="#e6f6fb" font-family="Inter, Arial, sans-serif" font-size="32">Building reliable systems · Data & Trading · Writing</text>
+  <text x="120" y="420" fill="#deffff" font-family="Inter, Arial, sans-serif" font-size="22">https://www.1mol.in</text>
+</svg>
