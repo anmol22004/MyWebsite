@@ -14,31 +14,31 @@ export const posts: Post[] = [
     excerpt: 'How Economics became more than a subject—it became a lens for understanding the world, from supply shocks to policy trade-offs.',
     content: `I didn't choose Economics because it was the easiest path; I chose it because it felt like the most honest one. Most subjects stay confined to the margins of a notebook, but Economics is restless. It follows you out of the study room and into the streets, the morning headlines, and the grocery store aisles. It is the science of "why things are the way they are."
 
-## The Filter of "Second-Order Effects"
+  ## **The Filter of "Second-Order Effects"**
 
-During my UPSC preparation, a subtle shift occurred. I stopped seeing news as isolated events and started seeing the invisible threads connecting them. Suddenly, inflation wasn't just a dry definition to be memorized for a Prelims mock; it was a living chain of supply-side shocks and demand pressures hitting household budgets in real-time.
+  During my UPSC preparation, a subtle shift occurred. I stopped seeing news as isolated events and started seeing the invisible threads connecting them. Suddenly, inflation wasn't just a dry definition to be memorized for a Prelims mock; it was a living chain of supply-side shocks and demand pressures hitting household budgets in real-time.
 
-Growth ceased to be a mere percentage on a slide. It became a question of quality: Who is being left behind? Is this productivity-led or just a debt-fueled surge? Economics trained my brain to look past the first-order headline and hunt for the second-order consequence.
+  Growth ceased to be a mere percentage on a slide. It became a question of quality: Who is being left behind? Is this productivity-led or just a debt-fueled surge? Economics trained my brain to look past the first-order headline and hunt for the second-order consequence.
 
-## Cracking the Code: From Data to Patterns
+  ## **Cracking the Code: From Data to Patterns**
 
-One of the biggest turning points in my journey was how I approached the Economic Survey. I stopped treating it like a giant encyclopedia and started treating it like a map.
+  One of the biggest turning points in my journey was how I approached the Economic Survey. I stopped treating it like a giant encyclopedia and started treating it like a map.
 
-I realized that the real "soul" of the economy isn't found in the bulk of the text, but in the shifts of a trendline or the specific logic of a boxed case study. By focusing on graphs and charts, I stopped memorizing and started extracting. This shift transformed my notes from a collection of facts into a library of evidence-based arguments.
+  I realized that the real "soul" of the economy isn't found in the bulk of the text, but in the shifts of a trendline or the specific logic of a boxed case study. By focusing on graphs and charts, I stopped memorizing and started extracting. This shift transformed my notes from a collection of facts into a library of evidence-based arguments.
 
-## The Mentor Effect: Making Logic Visible
+  ## **The Mentor Effect: Making Logic Visible**
 
-This journey wouldn't have been the same without mentors who stripped away the intimidation factor. Learning from Dr. Vibhas Jha was a masterclass in structural thinking. He didn't just teach "chapters"; he connected the dots until the logic of the entire system became visible. Under his guidance, Economics stopped being a "center" of my prep and started being its backbone—providing a level of clarity and confidence that spilled over into every other GS paper.
+  This journey wouldn't have been the same without mentors who stripped away the intimidation factor. Learning from Dr. Vibhas Jha was a masterclass in structural thinking. He didn't just teach "chapters"; he connected the dots until the logic of the entire system became visible. Under his guidance, Economics stopped being a "center" of my prep and started being its backbone—providing a level of clarity and confidence that spilled over into every other GS paper.
 
-## The Discipline of the Trade-off
+  ## **The Discipline of the Trade-off**
 
-What I admire most about Economics is that it punishes loud opinions and rewards balanced thinking. It is the ultimate reality check. It forces you to pause before offering "simple" solutions.
+  What I admire most about Economics is that it punishes loud opinions and rewards balanced thinking. It is the ultimate reality check. It forces you to pause before offering "simple" solutions.
 
-When someone says, "Just increase spending," Economics whispers, "At what cost, and for whom?" It is the study of incentives and trade-offs. It teaches you that there is no such thing as a "free" policy—only choices between different sets of consequences.
+  When someone says, "Just increase spending," Economics whispers, "At what cost, and for whom?" It is the study of incentives and trade-offs. It teaches you that there is no such thing as a "free" policy—only choices between different sets of consequences.
 
-## Beyond the Exam
+  ## **Beyond the Exam**
 
-Ultimately, Economics stayed with me not because it provided all the answers, but because it taught me how to ask better questions. It isn't just a tool for an exam; it's a permanent upgrade to my mental hardware. It is a way of navigating the world with a bit more nuance, a bit more evidence, and a lot more reason.`
+  Ultimately, Economics stayed with me not because it provided all the answers, but because it taught me how to ask better questions. It isn't just a tool for an exam; it's a permanent upgrade to my mental hardware. It is a way of navigating the world with a bit more nuance, a bit more evidence, and a lot more reason.`
   },
   {
     id: 'upsc-journey',

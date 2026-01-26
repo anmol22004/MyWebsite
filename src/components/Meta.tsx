@@ -32,6 +32,16 @@ export default function Meta({ title, description, image, url }: Props) {
       el.content = content
     }
 
+    // Set favicon (logo) in tab
+    const faviconUrl = '/images/icon-logo.png'; // Changed to icon-logo.png as requested
+    let link: HTMLLinkElement | null = document.querySelector("link[rel='icon']") as HTMLLinkElement | null;
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+    link.href = faviconUrl;
+
     setMeta('description', description)
     setProp('og:title', title)
     setProp('og:description', description)
