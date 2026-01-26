@@ -40,7 +40,10 @@ export default function BlogPost() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
         <button
           className="px-4 py-2 rounded bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-semibold shadow hover:from-indigo-500 hover:to-cyan-400"
-          onClick={() => navigate('/blog')}
+          onClick={() => {
+            navigate('/blog');
+            window.scrollTo({ top: 0, behavior: 'instant' });
+          }}
         >
           Back to Blog
         </button>

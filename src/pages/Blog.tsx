@@ -1,5 +1,7 @@
 
+
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Meta from '../components/Meta'
 import posts from '../data/blogs'
 
@@ -20,12 +22,10 @@ export default function Blog() {
               key={post.id}
               className="group overflow-hidden bg-white rounded-lg shadow-md border border-indigo-200 hover:shadow-xl transition duration-300"
             >
-              <a
-                href={blogUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to={blogUrl}
                 className="block p-6 hover:bg-indigo-50 transition cursor-pointer"
-                title="Open blog in new tab"
+                title="Read full blog"
               >
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex-1">
@@ -47,7 +47,7 @@ export default function Blog() {
                 <p className="text-sm text-slate-700 leading-relaxed font-medium">
                   {post.excerpt}
                 </p>
-              </a>
+              </Link>
               {/* ...removed shareable link and Copy Link button... */}
             </article>
           );

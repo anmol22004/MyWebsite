@@ -12,6 +12,7 @@ export default function Home() {
         </p>
         <div className="mt-6 sm:mt-8 flex gap-3 sm:gap-4 justify-center flex-wrap px-4 w-full max-w-xl mx-auto">
           <a href="/about" className="w-full sm:w-auto block text-center px-4 sm:px-6 py-3 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-indigo-600 to-indigo-500 text-white rounded-lg hover:shadow-lg transition duration-200 font-semibold">About Me</a>
+          <a href="/blog" className="w-full sm:w-auto block text-center mt-2 sm:mt-0 sm:ml-2 px-4 sm:px-6 py-3 sm:py-3 text-sm sm:text-base border-2 border-cyan-500 text-cyan-600 rounded-lg hover:bg-cyan-50 transition duration-200 font-semibold">Blog</a>
           <a href="/projects" className="w-full sm:w-auto block text-center mt-2 sm:mt-0 sm:ml-2 px-4 sm:px-6 py-3 sm:py-3 text-sm sm:text-base border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition duration-200 font-semibold">View Projects</a>
         </div>
       </section>
