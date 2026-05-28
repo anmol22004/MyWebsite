@@ -1,54 +1,53 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
+import { buildMeta } from '@/lib/seo'
 
 type Props = {
   title?: string
   description?: string
   image?: string
-  url?: string
+  path?: string
 }
 
-export default function Meta({ title, description, image, url }: Props) {
+/**
+ * Sets <head> meta tags imperatively for the current route.
+ *
+ * NOTE: This mutates the DOM after React mounts, so crawlers that
+ * don't execute JS will see the index.html defaults. Acceptable for
+ * a personal site, but consider migrating to react-helmet-async or
+ * SSG (Astro/Next) once SEO becomes a priority.
+ */
+export function Meta(props: Props) {
+  const { title, description, image, url } = buildMeta(props)
+
   useEffect(() => {
-    if (title) document.title = title
-    const setMeta = (name: string, content?: string) => {
-      if (!content) return
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null
-      if (!el) {
-        el = document.createElement('meta')
-        el.setAttribute('name', name)
-        document.head.appendChild(el)
-      }
-      el.content = content
-    }
+    document.title = title
 
-    const setProp = (prop: string, content?: string) => {
-      if (!content) return
-      let el = document.querySelector(`meta[property="${prop}"]`) as HTMLMetaElement | null
-      if (!el) {
-        el = document.createElement('meta')
-        el.setAttribute('property', prop)
-        document.head.appendChild(el)
-      }
-      el.content = content
-    }
+    setAttr('meta[name="description"]',     'name',     'description', description)
+    setAttr('meta[property="og:title"]',     'property', 'og:title',    title)
+    setAttr('meta[property="og:description"]', 'property', 'og:description', description)
+    setAttr('meta[property="og:image"]',     'property', 'og:image',    image)
+    setAttr('meta[property="og:url"]',       'property', 'og:url',      url)
+    setAttr('meta[name="twitter:card"]',     'name',     'twitter:card', 'summary_large_image')
 
-    // Set favicon (logo) in tab
-    const faviconUrl = '/images/icon-logo.png'; // Changed to icon-logo.png as requested
-    let link: HTMLLinkElement | null = document.querySelector("link[rel='icon']") as HTMLLinkElement | null;
-    if (!link) {
-      link = document.createElement('link');
-      link.rel = 'icon';
-      document.head.appendChild(link);
+    let icon = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
+    if (!icon) {
+      icon = document.createElement('link')
+      icon.rel = 'icon'
+      document.head.appendChild(icon)
     }
-    link.href = faviconUrl;
-
-    setMeta('description', description)
-    setProp('og:title', title)
-    setProp('og:description', description)
-    setProp('og:image', image)
-    setProp('og:url', url)
-    setMeta('twitter:card', 'summary_large_image')
+    icon.href = '/images/icon-logo.png'
   }, [title, description, image, url])
 
   return null
+}
+
+function setAttr(selector: string, attr: string, key: string, content: string) {
+  if (!content) return
+  let el = document.querySelector(selector) as HTMLMetaElement | null
+  if (!el) {
+    el = document.createElement('meta')
+    el.setAttribute(attr, key)
+    document.head.appendChild(el)
+  }
+  el.content = content
 }
