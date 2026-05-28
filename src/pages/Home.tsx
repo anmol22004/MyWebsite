@@ -1,34 +1,127 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Github, Linkedin, Twitter, Mail, ArrowRight } from 'lucide-react'
 import Meta from '../components/Meta'
+import posts from '../data/blogs'
+
+function readingTime(text: string) {
+  return Math.ceil(text.trim().split(/\s+/).length / 200)
+}
+
+const recent = [...posts]
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 4)
 
 export default function Home() {
   return (
-    <div className="space-y-8 sm:space-y-12">
-      <Meta title="Anmol Agarwal — Software Engineer" description="I build data pipelines, trading systems, and ML-powered applications. Focused on reliability, performance, and solving real-world problems." image="/images/og-image.svg" url="https://www.1mol.in/" />
-      <section className="text-center py-8 sm:py-16">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 text-transparent bg-clip-text mb-4">Hi, I'm Anmol</h1>
-        <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed px-4">
-          I build data pipelines, trading systems, and ML-powered applications. Focused on reliability, performance, and solving real-world problems.
+    <div className="max-w-[680px] mx-auto space-y-16 pt-2 sm:pt-6">
+      <Meta
+        title="Anmol Agarwal — Software Engineer"
+        description="Software engineer building data pipelines, trading systems, and ML applications."
+        image="/images/og-image.svg"
+        url="https://www.1mol.in/"
+      />
+
+      {/* Hero */}
+      <section className="space-y-5">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50">
+          Hi, I'm Anmol.
+        </h1>
+        <p className="text-base sm:text-[1.05rem] text-gray-600 dark:text-gray-400 leading-relaxed">
+          Software engineer building data pipelines, trading systems, and ML applications.
+          Three years at{' '}
+          <span className="text-gray-900 dark:text-gray-200 font-medium">Urban Company</span>
+          {' '}and{' '}
+          <span className="text-gray-900 dark:text-gray-200 font-medium">Algoji</span>.
+          Currently studying for CFA Level 1 and writing about finance, engineering, and the space between.
         </p>
-        <div className="mt-6 sm:mt-8 flex gap-3 sm:gap-4 justify-center flex-wrap px-4 w-full max-w-xl mx-auto">
-          <a href="/about" className="w-full sm:w-auto block text-center px-4 sm:px-6 py-3 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-indigo-600 to-indigo-500 text-white rounded-lg hover:shadow-lg transition duration-200 font-semibold">About Me</a>
-          <a href="/blog" className="w-full sm:w-auto block text-center mt-2 sm:mt-0 sm:ml-2 px-4 sm:px-6 py-3 sm:py-3 text-sm sm:text-base border-2 border-cyan-500 text-cyan-600 rounded-lg hover:bg-cyan-50 transition duration-200 font-semibold">Blog</a>
-          <a href="/projects" className="w-full sm:w-auto block text-center mt-2 sm:mt-0 sm:ml-2 px-4 sm:px-6 py-3 sm:py-3 text-sm sm:text-base border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition duration-200 font-semibold">View Projects</a>
+        <div className="flex flex-wrap gap-2 pt-1">
+          <Link
+            to="/about"
+            className="px-4 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+          >
+            About me
+          </Link>
+          <Link
+            to="/projects"
+            className="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 border border-gray-300 dark:border-white/10 rounded-lg hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-500 dark:hover:border-white/30 transition-colors"
+          >
+            Projects
+          </Link>
+          <Link
+            to="/films"
+            className="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 border border-gray-300 dark:border-white/10 rounded-lg hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-500 dark:hover:border-white/30 transition-colors"
+          >
+            Films
+          </Link>
         </div>
       </section>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 px-4">
-        <div className="p-4 sm:p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-200 border border-indigo-100">
-          <h3 className="font-semibold text-base sm:text-lg text-indigo-600">🔧 Backend & Systems</h3>
-          <p className="mt-2 text-xs sm:text-sm text-slate-600">Python, TypeScript, SQL, cloud platforms. Building reliable production systems.</p>
+      {/* Recent writing */}
+      <section>
+        <h2 className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-5">
+          Recent Writing
+        </h2>
+        <div className="divide-y divide-gray-100 dark:divide-white/5">
+          {recent.map(post => {
+            const mins = readingTime(post.content)
+            return (
+              <Link
+                key={post.id}
+                to={`/blog/${post.id}`}
+                className="group flex items-baseline justify-between gap-4 py-4"
+              >
+                <span className="text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-snug">
+                  {post.title}
+                </span>
+                <span className="shrink-0 font-mono text-[11px] text-gray-400 dark:text-gray-500">
+                  {new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                </span>
+              </Link>
+            )
+          })}
         </div>
-        <div className="p-4 sm:p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-200 border border-indigo-100">
-          <h3 className="font-semibold text-base sm:text-lg text-indigo-600">📊 Data & ML</h3>
-          <p className="mt-2 text-xs sm:text-sm text-slate-600">Data pipelines, ML models, forecasting, and analytics. From prototypes to production.</p>
-        </div>
-        <div className="p-4 sm:p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-200 border border-indigo-100">
-          <h3 className="font-semibold text-base sm:text-lg text-indigo-600">🎯 Trading Systems</h3>
-          <p className="mt-2 text-xs sm:text-sm text-slate-600">Algo trading, low-latency processing, market analysis. Quant-focused engineering.</p>
+        <Link
+          to="/blog"
+          className="mt-5 inline-flex items-center gap-1.5 text-xs text-indigo-600 dark:text-indigo-400 hover:underline underline-offset-4"
+        >
+          All posts <ArrowRight size={12} />
+        </Link>
+      </section>
+
+      {/* Contact */}
+      <section className="border-t border-gray-100 dark:border-white/5 pt-12 space-y-4">
+        <h2 className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest">
+          Get in Touch
+        </h2>
+        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+          Open to interesting conversations, collaborations, and opportunities.
+        </p>
+        <div className="flex flex-wrap items-center gap-5 pt-1">
+          <a
+            href="mailto:anmol22004@gmail.com"
+            className="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline underline-offset-4"
+          >
+            anmol22004@gmail.com
+          </a>
+          <div className="flex items-center gap-4">
+            {[
+              { href: 'https://github.com/anmol22004', Icon: Github, label: 'GitHub' },
+              { href: 'https://www.linkedin.com/in/anmol22004/', Icon: Linkedin, label: 'LinkedIn' },
+              { href: 'https://twitter.com/imanmolag', Icon: Twitter, label: 'Twitter' },
+            ].map(({ href, Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                title={label}
+                className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+              >
+                <Icon size={17} strokeWidth={1.5} />
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </div>

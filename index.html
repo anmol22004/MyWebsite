@@ -3,7 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Site</title>
+    <title>Anmol Agarwal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        try {
+          var s = localStorage.getItem('theme');
+          var prefer = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          if (s === 'dark' || (!s && prefer === 'dark')) document.documentElement.classList.add('dark');
+        } catch (_) {}
+      })();
+    </script>
     <meta name="description" content="Anmol Agarwal — Software engineer building data pipelines, trading systems, and ML applications. Portfolio, projects, and blog." />
     <link rel="canonical" href="https://www.1mol.in/" />
     <meta property="og:type" content="website" />
